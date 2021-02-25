@@ -1,0 +1,21 @@
+{
+    "name": "znframework/package-tests",
+    "type": "project",
+    "description": "ZN Framework Tests",
+    "keywords": ["zn","zeroneed","tests"],
+    "homepage": "https://github.com/znframework/package-tests",
+    "license": "MIT",
+    "authors": 
+    [
+        {
+            "name": "Ozan UYKUN",
+            "email": "ozanbote@gmail.com",
+            "homepage": "http://www.znframework.com",
+            "role": "Developer"
+        }
+    ],
+    "require": 
+    {
+        "php": ">=7.0.0"
+    }
+}
