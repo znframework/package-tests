@@ -16,7 +16,7 @@ class ZerocoreExtends extends \ZN\Test\GlobalExtends
 
                 $this->createClassMapTopOutput($output);
 
-                self::$path = PROJECT_DIR . 'ClassMap.php';
+                self::$path = PROJECT_DIR . 'map.php';
             }
 
             public function mockAliases()
