@@ -29,6 +29,11 @@ class VMethodsTest extends \PHPUnit\Framework\TestCase
         $this->assertStringContainsString('ZNValidationCaptcha', (string) Form::vCaptcha()->text('name'));
     }
 
+    public function testAnswer()
+    {
+        $this->assertStringContainsString('ZNValidationAnswer', (string) Form::vAnswer()->text('name'));
+    }
+
     public function testMatch()
     {
         $this->assertStringContainsString('ZNValidationMatch', (string) Form::vMatch('target')->text('name'));
