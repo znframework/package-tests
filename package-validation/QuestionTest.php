@@ -16,4 +16,15 @@ class QuestionTest extends \ZN\Test\GlobalExtends
         $this->assertIsString(Validator::question());
         $this->assertIsString(Validator::question(['one' => 1, 'two' => 2]));
     }
+
+    public function testRule()
+    {
+        \Post::data('zbc');
+
+        $data = new Data;
+
+        $data->answer()->rules('data');
+
+        $this->assertIsString($data->error('string')); 
+    }
 }
