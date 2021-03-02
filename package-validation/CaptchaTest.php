@@ -17,4 +17,9 @@ class CaptchaTest extends \ZN\Test\GlobalExtends
 
         $this->assertIsString($data->error('string')); 
     }
+
+    public function testReturnFalse()
+    {
+        $this->assertFalse(Validator::captcha(''));
+    }
 }
