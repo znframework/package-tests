@@ -14,11 +14,6 @@ class BaseTest extends ZerocoreExtends
         $this->assertEquals('VALUE', Base::illustrate('PHP_VERSION', 'VALUE'));
     }   
 
-    public function testLayer()
-    {
-        $this->assertNull(Base::layer('Top'));
-    } 
-
     public function testHost()
     {
         $_SERVER['HTTP_X_FORWARDED_HOST'] = 'localhost';
