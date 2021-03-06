@@ -218,6 +218,13 @@ class SelectTest extends DatabaseExtends
         $this->assertIsString($result[1]->name);
     }
 
+    public function testMultiResult()
+    {
+        $persons = DB::persons();
+
+        $this->assertEquals($persons->result(), $persons->result());
+    }
+
     public function testTableNameResult()
     {
         $result = DB::personsResult();
