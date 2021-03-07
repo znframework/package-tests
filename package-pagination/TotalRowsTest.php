@@ -9,7 +9,7 @@ class TotalRowsTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertStringContainsString
         (
-            '<a href="' . URL::site('Home/main/40') . '" class="page-link">3</a>', 
+            '<a href="' . URL::site('Home/main/40') . '" class="page-link">', 
             Pagination::limit(20)->totalRows(45)->create()
         );
     }
