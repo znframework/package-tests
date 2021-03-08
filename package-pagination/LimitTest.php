@@ -9,7 +9,7 @@ class LimitTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertStringContainsString
         (
-            '<a href="' . URL::site('Home/main/45') . '" class="page-link">10</a>', 
+            '<a href="' . URL::site('Home/main/45') . '" class="page-link">', 
             Pagination::limit(5)->create()
         );
     }
