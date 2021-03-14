@@ -13,10 +13,11 @@ class FolderAllFilesTest extends FilesystemExtends
         File::create($directory . 'files1.txt');
         File::create($directory . 'files2.txt');
         File::create($directory . 'files3');
+        Folder::create($directory . 'emptyDirectory');
 
         $files = Folder::allFiles($directory);
 
-        $this->assertEquals(3, count($files));
+        $this->assertEquals(4, count($files));
 
         Folder::delete($directory);
     }
