@@ -19,6 +19,19 @@ class InsertTest extends DatabaseExtends
         $this->assertIsBool($status);
     }
 
+    public function testMultiInsertData()
+    {
+        $status = DB::insert('persons', 
+        [
+            ['name' => 'Hamza'],
+            ['name' => 'Salih']
+        ]);
+
+        $this->assertIsBool($status);
+
+        DB::where('name', 'Hamza', 'or')->where('name', 'Salih')->delete('persons');
+    }
+
     public function testInsertDuplicateCheck()
     {
         $status = DB::duplicateCheck('name')->insert('persons', 
