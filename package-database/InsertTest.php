@@ -40,7 +40,7 @@ class InsertTest extends DatabaseExtends
             'surname' => 'Uykun'
         ]);
 
-        $this->assertIsBool($status);
+        $this->assertFalse($status);
     }
 
     public function testInsertDuplicateCheckUpdate()
