@@ -6,6 +6,11 @@ use ZN\Base;
 
 class UploadTest extends FilesystemExtends
 {
+    public function testProgress()
+    {
+        $this->assertStringContainsString('callableUploadProgress', Upload::progress('test', 'test', function(){ return 'a'; }));
+    }
+    
     public function testCreateFile()
     {
         $file = tempnam(sys_get_temp_dir(), 'Tux');
