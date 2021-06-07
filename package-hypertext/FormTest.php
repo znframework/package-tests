@@ -227,4 +227,13 @@ class FormTest extends HypertextExtends
 
         $this->assertEquals('a', $selected);
     }
+
+    public function testResetValidationRules()
+    {
+        Session::insert('FormValidationRulesExampleForm', 'Example Form');
+
+        Form::resetValidationRules('ExampleForm');
+
+        $this->assertEmpty(Session::select('FormValidationRulesExampleForm'));
+    }
 }
