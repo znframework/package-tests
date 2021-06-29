@@ -203,4 +203,11 @@ class InsertTest extends DatabaseExtends
 
         $this->assertEquals("INSERT  INTO table (name) VALUES (date)", DB::stringQuery());
     }
+
+    public function testHashId()
+    {
+        $stringQuery = DB::string()->hashIdColumn('HID')->insert('table', ['name' => 'Micheal']);
+
+        $this->assertStringContainsString(DB::hashId(), $stringQuery);
+    }
 }
