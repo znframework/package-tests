@@ -38,7 +38,7 @@ class PostgresConnectionTest extends DatabaseExtends
         $this->assertEquals(1, $db->affectedRows() ?: 1);
         $this->assertIsArray($db->example2()->columnData() ?: []);
         $this->assertEquals(['id', 'name'], $db->example2()->columns() ?: ['id', 'name']);
-        $this->assertEquals(3, $db->example2()->totalRows() ?: 3);
+        $this->assertEquals(2, $db->example2()->totalRows());
         $this->assertIsString((string) $db->version());
         $this->assertEquals(['1', 'zn'], $db->example2()->fetchRow() ?: ['1', 'zn']);
         $this->assertEquals(['1', 'zn', 'id' => '1', 'name' => 'zn'], $db->example2()->fetchArray() ?: ['1', 'zn', 'id' => '1', 'name' => 'zn']);
