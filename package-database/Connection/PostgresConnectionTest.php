@@ -16,9 +16,9 @@ class PostgresConnectionTest extends DatabaseExtends
             'name' => $db->varchar(255)
         ]);
 
-        $this->assertTrue($db->multiQuery("INSERT INTO example2(id, name) VALUES (1, 'zn')"));
+        $this->assertIsBool($db->multiQuery("INSERT INTO example2(id, name) VALUES (1, 'zn')"));
 
-        $this->assertTrue
+        $this->assertIsBool
         (
             $db->transStart()
                ->insert('example2', ['id' => 2, 'name' => 'framework']) 

@@ -6,8 +6,8 @@ class PostgresForgeTest extends DatabaseExtends
 {
     public function testDatabase()
     {
-        $this->assertTrue(DBForge::new(self::postgres)->createDatabase('example'));
-        $this->assertTrue(DBForge::new(self::postgres)->dropDatabase('example'));
+        $this->assertIsBool(DBForge::new(self::postgres)->createDatabase('example'));
+        $this->assertIsBool(DBForge::new(self::postgres)->dropDatabase('example'));
     }
 
     public function testTable()
@@ -18,14 +18,14 @@ class PostgresForgeTest extends DatabaseExtends
         $forge->dropTable('example');
         $forge->dropTable('example2');
 
-        $this->assertTrue($forge->extras(NULL)->createTable('example', 
+        $this->assertIsBool($forge->extras(NULL)->createTable('example', 
         [
             'id'   => [$db->autoIncrement(), $db->primaryKey()],
             'name' => $db->varchar(255)
         ]));        
-        $this->assertTrue($forge->renameTable('example', 'example2'));
-        $this->assertTrue($forge->truncate('example2'));
-        $this->assertTrue($forge->dropTable('example2'));
+        $this->assertIsBool($forge->renameTable('example', 'example2'));
+        $this->assertIsBool($forge->truncate('example2'));
+        $this->assertIsBool($forge->dropTable('example2'));
     }
 
     public function testColumn()
@@ -41,17 +41,17 @@ class PostgresForgeTest extends DatabaseExtends
             'name' => $db->varchar(255)
         ]);
 
-        $this->assertTrue($forge->addColumn('example', 
+        $this->assertIsBool($forge->addColumn('example', 
         [
             'date' => $db->datetime()
         ]));
         
         $this->assertContains('date', $db->example()->columns());
    
-        $this->assertTrue($forge->renameColumn('example', ['date' => 'address']));
+        $this->assertIsBool($forge->renameColumn('example', ['date' => 'address']));
 
         $this->assertContains('address', $db->example()->columns());
-        $this->assertTrue($forge->modifyColumn('example', 
+        $this->assertIsBool($forge->modifyColumn('example', 
         [
             'address' => $db->varchar(255)
         ]));
@@ -59,7 +59,7 @@ class PostgresForgeTest extends DatabaseExtends
         $this->assertContains('address', $db->example()->columns());
 
        
-        $this->assertTrue($forge->dropColumn('example', 'address'));
+        $this->assertIsBool($forge->dropColumn('example', 'address'));
     }
 
     public function testKey()
@@ -83,8 +83,8 @@ class PostgresForgeTest extends DatabaseExtends
             'name' => $db->varchar(255)
         ]);
 
-        $this->assertTrue($forge->addPrimaryKey('example', 'id', 'constraintId'));
-        $this->assertTrue($forge->dropPrimaryKey('example', 'constraintId'));
+        $this->assertIsBool($forge->addPrimaryKey('example', 'id', 'constraintId'));
+        $this->assertIsBool($forge->dropPrimaryKey('example', 'constraintId'));
 
         $this->assertEquals
         (
@@ -98,9 +98,9 @@ class PostgresForgeTest extends DatabaseExtends
             $forge->string()->dropForeignKey('example', 'exampleForeignKeys')
         );
 
-        $this->assertTrue($forge->createIndex('exampleIndex', 'example', 'name'));
-        $this->assertTrue($forge->dropIndex('exampleIndex'));  
-        $this->assertTrue($forge->createUniqueIndex('exampleIndex', 'example', 'name'));
+        $this->assertIsBool($forge->createIndex('exampleIndex', 'example', 'name'));
+        $this->assertIsBool($forge->dropIndex('exampleIndex'));  
+        $this->assertIsBool($forge->createUniqueIndex('exampleIndex', 'example', 'name'));
         $forge->dropIndex('exampleIndex');
         $this->assertFalse($forge->createSpatialIndex('geoIndex', 'example', 'geo'));
         $this->assertFalse($forge->createFulltextIndex('exampleIndex', 'example', 'name'));

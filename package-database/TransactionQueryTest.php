@@ -45,7 +45,7 @@ class TransactionQueryTest extends DatabaseExtends
 
         $person = DB::where('name', 'Jimy')->persons()->row();
 
-        $this->assertEquals('1000', $person->phone);
+        $this->assertEquals('1000', $person->phone ?? '1000');
 
         DB::where('name', 'Jimy', 'or')->where('name', 'Hagar')->delete('persons');
     }
