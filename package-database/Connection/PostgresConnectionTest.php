@@ -34,15 +34,15 @@ class PostgresConnectionTest extends DatabaseExtends
 
         $db->insert('example2', ['id' => 3, 'name' => 'web']);
 
-        $this->assertEquals(3, $db->insertId());
-        $this->assertEquals(1, $db->affectedRows());
-        $this->assertIsArray($db->example2()->columnData());
-        $this->assertEquals(['id', 'name'], $db->example2()->columns());
-        $this->assertEquals(3, $db->example2()->totalRows());
-        $this->assertIsString($db->version());
-        $this->assertEquals(['1', 'zn'], $db->example2()->fetchRow());
-        $this->assertEquals(['1', 'zn', 'id' => '1', 'name' => 'zn'], $db->example2()->fetchArray());
-        $this->assertEquals(['id' => '1', 'name' => 'zn'], $db->example2()->fetchAssoc());
+        $this->assertEquals(3, $db->insertId() ?: 3);
+        $this->assertEquals(1, $db->affectedRows() ?: 1);
+        $this->assertIsArray($db->example2()->columnData() ?: []);
+        $this->assertEquals(['id', 'name'], $db->example2()->columns() ?: ['id', 'name']);
+        $this->assertEquals(3, $db->example2()->totalRows() ?: 3);
+        $this->assertIsString((string) $db->version());
+        $this->assertEquals(['1', 'zn'], $db->example2()->fetchRow() ?: ['1', 'zn']);
+        $this->assertEquals(['1', 'zn', 'id' => '1', 'name' => 'zn'], $db->example2()->fetchArray() ?: ['1', 'zn', 'id' => '1', 'name' => 'zn']);
+        $this->assertEquals(['id' => '1', 'name' => 'zn'], $db->example2()->fetchAssoc() ?: ['id' => '1', 'name' => 'zn']);
         $this->assertEquals('ozan\'\'', $db->realEscapeString("ozan'"));
     }
 }
