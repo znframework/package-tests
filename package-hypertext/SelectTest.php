@@ -15,6 +15,15 @@ class SelectTest extends \PHPUnit\Framework\TestCase
         );
     }
 
+    public function testOnlyOptions()
+    {
+        $this->assertEquals
+        (
+            '<option', 
+            substr((string) Form::onlyOptions()->select('cities', self::options), 0, 7)
+        );
+    }
+
     public function testBasicWithOptionAttr()
     {
         $this->assertStringContainsString

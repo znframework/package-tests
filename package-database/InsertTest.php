@@ -210,4 +210,11 @@ class InsertTest extends DatabaseExtends
 
         $this->assertStringContainsString(DB::hashId(), $stringQuery);
     }
+
+    public function testReturningId()
+    {
+        DB::string()->returningId('uid')->insert('table', ['name' => 'Micheal']);
+        
+        $this->assertEquals(Properties::$returningId, 'uid');
+    }
 }
