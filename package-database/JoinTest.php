@@ -38,4 +38,11 @@ class JoinTest extends DatabaseExtends
 
         $this->assertSame('SELECT  person_name,address  FROM addresses UNION ALL SELECT  name,surname  FROM persons ', $query);
     }
+
+    public function testAliases()
+    {
+        $query = DB::string()->aliases(['pro' => 'profiles', 'pic' => 'pictures'])->leftJoin('pic.id', 'pro.id')->get('pro');
+
+        $this->assertSame('SELECT  *  FROM profiles pro  LEFT JOIN pictures pic ON pic.id = pro.id  ', $query);
+    }
 }

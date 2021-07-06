@@ -26,4 +26,10 @@ class ISTest extends ZerocoreExtends
     {
         $this->assertTrue(IS::declaredClass('ZN\Database\DB'));
     }
+
+    public function testSlug()
+    {
+        $this->assertTrue(IS::slug('a-b'));
+        $this->assertFalse(IS::slug('a b'));
+    }
 }
