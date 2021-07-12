@@ -34,4 +34,11 @@ class ArraysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(3, Arrays::countSameValues(['a', 'b', 'b', 'b'], 'b'));
         $this->assertEquals(['a' => 1, 'b' => 3], Arrays::countSameValues(['a', 'b', 'b', 'b']));
     }
+
+    public function testCombine()
+    {
+        $combine = Arrays::combine(['a', 'b']);
+
+        $this->assertEquals(['a' => 'a', 'b' => 'b'], $combine);
+    }
 }
