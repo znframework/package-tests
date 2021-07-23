@@ -5,6 +5,7 @@ use Get;
 use Post;
 use File;
 use Json;
+use DBForge;
 use Request;
 
 class InsertTest extends DatabaseExtends
@@ -216,5 +217,50 @@ class InsertTest extends DatabaseExtends
         DB::string()->returningId('uid')->insert('table', ['name' => 'Micheal']);
         
         $this->assertEquals(Properties::$returningId, 'uid');
+    }
+
+    public function testIsUpdate()
+    {
+        DB::duplicateCheckUpdate('name')->insert('persons', 
+        [
+            'name' => 'Ozan'
+        ]);
+
+        $this->assertIsBool(DB::isUpdate());
+    }
+
+    public function testUnsetData()
+    {
+        Post::name('name');
+        Post::surname('surname');
+        Post::phone('phone');
+
+        $this->assertEquals
+        (
+            'INSERT  INTO persons (name) VALUES (\'name\')', 
+            DB::string()->unset('surname', 'phone')->insert('post:persons')
+        );
+    }
+
+    public function testUnsetId()
+    {
+        $this->tableContainer(function($db)
+        {
+            Post::id('5'); Post::name('name');
+
+            $row = $db->object()->insert('post:example');
+        
+            $this->assertEquals(1, $row->id);
+        });
+    }
+
+    public function testObject()
+    {
+        $this->tableContainer(function($db)
+        {
+            $row = $db->object()->insert('example', ['name' => 'object']);
+        
+            $this->assertIsObject($row);
+        });
     }
 }

@@ -87,4 +87,22 @@ class DatabaseExtends extends \ZN\Test\GlobalExtends
     {
         $this->driver($callback, 'SQLServer');
     }
+
+    protected function tableContainer($callable)
+    {
+        $forge = DBForge::new(self::sqlite);
+        $db    = DB::new(self::sqlite);
+
+        $forge->dropTable('example');
+
+        $forge->extras(NULL)->createTable('example', 
+        [
+            'id'   => [$db->int(11), $db->primaryKey(), $db->autoIncrement()],
+            'name' => $db->varchar(255)
+        ]);
+
+        $callable($db, $forge);
+        
+        $forge->dropTable('example');
+    }
 }
