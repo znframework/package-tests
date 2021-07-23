@@ -37,11 +37,6 @@ class NestpayRequestTest extends \PHPUnit\Framework\TestCase
         $this->assertIsObject(Gateway::request('Nestpay')->orderId('myorder'));
     }
 
-    public function testAmount()
-    {
-        $this->assertIsObject(Gateway::request('Nestpay')->amount('10'));
-    }
-
     public function testCurrency()
     {
         $this->assertIsObject(Gateway::request('Nestpay')->currency('USD'));
@@ -92,13 +87,18 @@ class NestpayRequestTest extends \PHPUnit\Framework\TestCase
 
     public function testSend()
     {
-        $_POST['test'] = true;
-
-        $this->assertIsString(Gateway::request('Nestpay')->send('test'));
+        try
+        {
+           Gateway::request('Nestpay')->send('test');
+        }
+        catch( Exception\MissingInformationException $e )
+        {
+            $this->assertStringContainsString('[Amount]', $e->getMessage());
+        }
 
         try
         {
-            Gateway::request('Nestpay')->send('invalidbank');
+            Gateway::request('Nestpay')->amount(10)->send('invalidbank');
         }
         catch( Exception\InvalidBankException $e )
         {
@@ -111,11 +111,9 @@ class NestpayRequestTest extends \PHPUnit\Framework\TestCase
 
             $gateway->okUrl(NULL)->send('test');
         }
-        catch( Exception\MissingInformationExpception $e )
+        catch( Exception\MissingInformationException $e )
         {
             $this->assertStringContainsString('[okUrl]', $e->getMessage());
         }
-
-        unset($_POST['test']);
     }
 }
