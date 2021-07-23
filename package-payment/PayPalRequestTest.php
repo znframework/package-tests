@@ -28,9 +28,8 @@ class PayPalRequestTest extends \PHPUnit\Framework\TestCase
 
     public function testReturnItem()
     {
-        $this->assertIsObject(Gateway::request('PayPal')->item('a', '1', '1', '1'));
-
-        $this->assertIsObject(Gateway::request('PayPal')->item('a', 'a1', '1', '1')->item('b', 'b1', '1', '1'));
+        $this->assertNull(Gateway::request('PayPal')->item('a', '1', '1', '1')->send('test'));
+        $this->assertNull(Gateway::request('PayPal')->item('a', 'a1', '1', '1')->item('b', 'b1', '1', '1')->send('test'));
     }
 
     public function testOrderId()
@@ -75,5 +74,10 @@ class PayPalRequestTest extends \PHPUnit\Framework\TestCase
         {
             $this->assertStringContainsString('[invalidtype]', $e->getMessage());
         }
+    }
+
+    public function testCall()
+    {
+        $this->assertNull(Gateway::request('PayPal')->anyData('any')->send('test'));
     }
 }

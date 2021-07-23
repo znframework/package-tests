@@ -7,10 +7,12 @@ class NestpayResponseTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Gateway::response('Nestpay')->isValidHash());
 
         $_POST['HASHPARAMS'] = 'a:b:c';
+        $_POST['a'] = true;
 
         $this->assertFalse(Gateway::response('Nestpay')->isValidHash());
 
         unset($_POST['HASHPARAMS']);
+        unset($_POST['a']);
     }
 
     public function testIs3D()
