@@ -92,6 +92,8 @@ class NestpayRequestTest extends \PHPUnit\Framework\TestCase
 
     public function testSend()
     {
+        $_POST['test'] = true;
+
         $this->assertIsString(Gateway::request('Nestpay')->send('test'));
 
         try
@@ -113,5 +115,7 @@ class NestpayRequestTest extends \PHPUnit\Framework\TestCase
         {
             $this->assertStringContainsString('[okUrl]', $e->getMessage());
         }
+
+        unset($_POST['test']);
     }
 }
