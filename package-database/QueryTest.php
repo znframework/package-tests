@@ -20,9 +20,9 @@ class QueryTest extends DatabaseExtends
 
     public function testQueryWithOrderSecure()
     {
-        $person = DB::secure(['Ahri'])->query('select * from persons where name = ?');
+        $person = DB::secure(['Ahri', null])->query('select * from persons where name = ? and last ?');
 
-        $this->assertEquals("select * from persons where name = 'Ahri'", $person->stringQuery());
+        $this->assertEquals("select * from persons where name = 'Ahri' and last null", $person->stringQuery());
     }
 
     public function testBasicQuery()
