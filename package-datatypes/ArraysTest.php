@@ -41,4 +41,14 @@ class ArraysTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals(['a' => 'a', 'b' => 'b'], $combine);
     }
+
+    public function testForceRecursive()
+    {
+        $array = Arrays::forceRecursive(['a', 'b'], function($value)
+        {
+            return $value . '1';
+        });
+
+        $this->assertEquals(['a1', 'b1'], $array);
+    }
 }
