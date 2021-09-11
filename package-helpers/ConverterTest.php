@@ -32,6 +32,11 @@ class ConverterTest extends \PHPUnit\Framework\TestCase
         $this->assertSame('1,00', Converter::money(1.0));
     }
 
+    public function testNegativeMoney()
+    {
+        $this->assertSame('-1,00', Converter::money(-1.0));
+    }
+
     public function testMoneyToNumber()
     {
         $this->assertSame(1000000, (int) Converter::moneyToNumber('1.000.000'));
