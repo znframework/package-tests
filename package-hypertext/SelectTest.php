@@ -15,6 +15,15 @@ class SelectTest extends \PHPUnit\Framework\TestCase
         );
     }
 
+    public function testRepeat()
+    {
+        $this->assertStringContainsString
+        (
+            '<option value="20">20</option>', 
+            (string) Form::repeat()->select('cities', [1 => 20])
+        );
+    }
+
     public function testOnlyOptions()
     {
         $this->assertEquals
