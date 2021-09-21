@@ -22,6 +22,12 @@ class SelectTest extends \PHPUnit\Framework\TestCase
             '<option value="20">20</option>', 
             (string) Form::repeat()->select('cities', [1 => 20])
         );
+
+        $this->assertStringContainsString
+        (
+            '<option value="20">20</option>', 
+            (string) Form::repeat()->select('cities', [20 => 1])
+        );
     }
 
     public function testOnlyOptions()
