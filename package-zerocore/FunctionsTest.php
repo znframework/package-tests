@@ -38,4 +38,9 @@ class FunctionsTest extends ZerocoreExtends
     {
         $this->assertNull(redirect('home/main'));
     }
+
+    public function testWizard()
+    {
+        $this->assertStringContainsString('1', wizard('{{ $data }}', ['data' => 1]));
+    }
 }
