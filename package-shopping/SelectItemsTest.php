@@ -33,7 +33,7 @@ class SelectItemsTest extends \PHPUnit\Framework\TestCase
 
         Cart::insert($data);
 
-        $this->assertEquals('Banana', Cart::selectObjects()[0]->product);
+        $this->assertEquals('Banana', Cart::selectObjects()->{0}->product);
 
         Cart::delete('4432222345219');
     }

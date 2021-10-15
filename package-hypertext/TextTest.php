@@ -12,4 +12,13 @@ class TextTest extends \PHPUnit\Framework\TestCase
             (string) Form::id('example-text')->maxlength(10)->text('textBox', 'Welcome!')
         );
     }
+
+    public function testOnKeyWait()
+    {
+        $this->assertStringContainsString
+        (
+            'onkeywaititem', 
+            (string) Form::onkeywait('exampleFunction()', 100)->text('textBox', 'Welcome!')
+        );
+    }
 }
