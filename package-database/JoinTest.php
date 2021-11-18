@@ -45,4 +45,11 @@ class JoinTest extends DatabaseExtends
 
         $this->assertSame('SELECT  *  FROM profiles pro  LEFT JOIN pictures pic ON pic.id = pro.id  ', $query);
     }
+
+    public function testDBTable()
+    {
+        $query = DB::string()->aliases(['pro' => 'db1.profiles', 'pic' => 'db2.pictures'])->leftJoin('pic.id', 'pro.id')->get('pro');
+
+        $this->assertSame('SELECT  *  FROM db1.profiles pro  LEFT JOIN db2.pictures pic ON pic.id = pro.id  ', $query);
+    }
 }
