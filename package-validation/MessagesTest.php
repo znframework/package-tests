@@ -33,4 +33,15 @@ class MessagesTest extends \ZN\Test\GlobalExtends
 
         $this->assertStringContainsString('XYZ - 10', $data->error('string')); 
     }
+
+    public function testErrorSeparatorReplacement()
+    {
+        \Post::data('123123');
+
+        $data = new Data;
+
+        $data->value('XYZ')->rules('data', ['minchar' => 10]);
+
+        $this->assertStringContainsString("\n", $data->error('string', "\n")); 
+    }
 }
