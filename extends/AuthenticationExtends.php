@@ -54,12 +54,12 @@ class AuthenticationExtends extends \ZN\Test\GlobalExtends
         {
             public function mockUserExists()
             {
-                return $this->userExists('robot@znframework.com', '1234');
+                return $this->userExists('znframeworktest@yandex.com', '1234');
             }
 
             public function mockStartPermanentUserSessionWithCookie()
             {
-                return $this->startPermanentUserSessionWithCookie('robot@znframework.com', '1234');
+                return $this->startPermanentUserSessionWithCookie('znframeworktest@yandex.com', '1234');
             }
         };  
     }
@@ -92,8 +92,8 @@ class AuthenticationExtends extends \ZN\Test\GlobalExtends
             ],
             'emailSenderInfo' =>
             [
-                'name' => 'Robot',
-                'mail' => 'robot@znframework.com'
+                'name' => 'ZN Test',
+                'mail' => 'znframeworktest@yandex.com'
             ]
         ]);
     }
@@ -126,8 +126,8 @@ class AuthenticationExtends extends \ZN\Test\GlobalExtends
             ],
             'emailSenderInfo' =>
             [
-                'name' => 'Robot',
-                'mail' => 'robot@znframework.com'
+                'name' => 'ZN Test',
+                'mail' => 'znframeworktest@yandex.com'
             ]
         ]);
     }

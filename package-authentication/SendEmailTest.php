@@ -27,15 +27,15 @@ class SendEmailTest extends AuthenticationExtends
             'emailSenderInfo' =>
             [
                 'name' => 'Robot',
-                'mail' => 'robot@znframework.com'
+                'mail' => 'znframeworktest@yandex.com'
             ]
         ]);
 
-        DB::where('username', 'robot@znframework.com')->delete('users');
+        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
 
         (new Register)->do
         ([
-            'username' => 'robot@znframework.com',
+            'username' => 'znframeworktest@yandex.com',
             'password' => '1234'
         ]);
 

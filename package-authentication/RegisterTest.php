@@ -9,42 +9,42 @@ class RegisterTest extends AuthenticationExtends
 {
     public function testStandart()
     {
-        DB::where('username', 'robot@znframework.com')->delete('users');
+        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
 
         User::register
         ([
-            'username' => 'robot@znframework.com',
+            'username' => 'znframeworktest@yandex.com',
             'password' => '1234'
         ]);
 
-        $row = DB::where('username', 'robot@znframework.com')->users()->row();
+        $row = DB::where('username', 'znframeworktest@yandex.com')->users()->row();
 
-        $this->assertEquals('robot@znframework.com', $row->username);
+        $this->assertEquals('znframeworktest@yandex.com', $row->username);
     }
 
     public function testStandartWithAutoLogin()
     {
-        DB::where('username', 'robot@znframework.com')->delete('users');
+        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
 
         User::register
         ([
-            'username' => 'robot@znframework.com',
+            'username' => 'znframeworktest@yandex.com',
             'password' => '1234'
 
         ], true);
 
-        $this->assertEquals('robot@znframework.com', User::data()->username);
+        $this->assertEquals('znframeworktest@yandex.com', User::data()->username);
     }
 
     public function testStandartWithAutoLoginRedirect()
     {
         Properties::$redirectExit = false;
         
-        DB::where('username', 'robot@znframework.com')->delete('users');
+        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
 
         User::register
         ([
-            'username' => 'robot@znframework.com',
+            'username' => 'znframeworktest@yandex.com',
             'password' => '1234'
 
         ], 'redirect/link');
@@ -54,16 +54,16 @@ class RegisterTest extends AuthenticationExtends
 
     public function testStandartWithWithOptionalMethodAutoLogin()
     {
-        DB::where('username', 'robot@znframework.com')->delete('users');
+        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
 
         User::autoLogin()->register
         ([
-            'username' => 'robot@znframework.com',
+            'username' => 'znframeworktest@yandex.com',
             'password' => '1234'
 
         ]);
 
-        $this->assertEquals('robot@znframework.com', User::data()->username);
+        $this->assertEquals('znframeworktest@yandex.com', User::data()->username);
     }
 
     public function testJoinColumn()
@@ -118,11 +118,11 @@ class RegisterTest extends AuthenticationExtends
 
     public function testUnknownUserInformation()
     {
-        DB::where('username', 'robot@znframework.com')->delete('users');
+        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
         
         User::register
         ([
-            'username' => 'robot@znframework.com',
+            'username' => 'znframeworktest@yandex.com',
             'password' => '1234',
             'unknown'  => 'value'
         ]);
@@ -132,7 +132,7 @@ class RegisterTest extends AuthenticationExtends
 
     public function testUsernameError()
     {
-        DB::where('username', 'robot@znframework.com')->delete('users');
+        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
         
         User::register
         ([
@@ -181,7 +181,7 @@ class RegisterTest extends AuthenticationExtends
             ([
                 'username' => 'robot',
                 'password' => '1234',
-                'email'    => 'robot@znframework.com'
+                'email'    => 'znframeworktest@yandex.com'
             ]);
         }
         catch( Exception\ActivationReturnLinkNotFoundException $e )
@@ -211,7 +211,7 @@ class RegisterTest extends AuthenticationExtends
 
     public function testActivationColumn()
     {
-        DB::where('username', 'robot@znframework.com')->delete('accounts');
+        DB::where('username', 'znframeworktest@yandex.com')->delete('accounts');
 
         DBForge::dropTable('accounts');
 
@@ -245,7 +245,7 @@ class RegisterTest extends AuthenticationExtends
         {
             User::register
             ([
-                'username' => 'robot@znframework.com',
+                'username' => 'znframeworktest@yandex.com',
                 'password' => '1234'
             ], false, 'return/link');
         }

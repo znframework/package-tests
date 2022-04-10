@@ -27,7 +27,7 @@ class RegisterActivationReturnLinkExceptionTest extends AuthenticationExtends
             ([
                 'username' => 'robotz',
                 'password' => '1234',
-                'email'    => 'robot@znframework.com'
+                'email'    => 'znframeworktest@yandex.com'
     
             ]);
         }

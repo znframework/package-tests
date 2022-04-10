@@ -13,7 +13,7 @@ class SendTest extends EmailExtends
         {
             Email::attachment(self::default . 'package-email/attachments/file.txt')
             ->attachment(self::default . 'package-email/attachments/icon.png')
-            ->to('znunittestmail@yandex.com')->send('Subject', 'Message');
+            ->to('znframeworktest@yandex.com')->send('Subject', 'Message');
         }
         catch( \Exception $e )
         {

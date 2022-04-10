@@ -19,12 +19,12 @@ class EmailExtends extends \ZN\Test\GlobalExtends
             'smtp'   =>
             [
                 'host'      => 'smtp.yandex.com.tr',
-                'user'      => 'robot@znframework.com',
+                'user'      => 'znframeworktest@yandex.com',
                 'password'  => \ZN\Console\Environment::export('SMTP_PASSWORD'),
-                'port'      => 465,
+                'port'      => 587,
                 'keepAlive' => false,
                 'timeout'   => 10,
-                'encode'    => 'ssl',  # empty, tls, ssl
+                'encode'    => 'tls',  # empty, tls, ssl
                 'dsn'       => false,
                 'auth'      => true
             ],
@@ -39,7 +39,7 @@ class EmailExtends extends \ZN\Test\GlobalExtends
             ],
             'general' =>
             [
-                'senderMail'    => 'robot@znframework.com',                  # Default Sender E-mail Address.
+                'senderMail'    => 'znframeworktest@yandex.com',                  # Default Sender E-mail Address.
                 'senderName'    => 'ZN',                  # Default Sender Name.
                 'priority'      => 3,                   # 1, 2, 3, 4, 5
                 'charset'       => 'UTF-8',             # Charset Type

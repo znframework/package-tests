@@ -7,9 +7,9 @@ class ForgotPasswordTest extends AuthenticationExtends
 {
     public function testEmail()
     {
-        (new ForgotPassword)->email('robot@znframework.com');
+        (new ForgotPassword)->email('znframeworktest@yandex.com');
 
-        $this->assertEquals('robot@znframework.com', Properties::$parameters['email']);
+        $this->assertEquals('znframeworktest@yandex.com', Properties::$parameters['email']);
     }
 
     public function testVerification()

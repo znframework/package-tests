@@ -65,13 +65,13 @@ class ActivationCompleteTest extends AuthenticationExtends
             ]
         ]);
 
-        DB::where('username', 'robot@znframework.com')->delete('users');
+        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
 
         try
         {
             User::register
             ([
-                'username' => 'robot@znframework.com',
+                'username' => 'znframeworktest@yandex.com',
                 'password' => '1234'
 
             ], false, 'return/link');
@@ -81,7 +81,7 @@ class ActivationCompleteTest extends AuthenticationExtends
             $this->assertStringContainsString('is an invalid email address!', $e->getMessage());
         }
 
-        User::activationComplete('robot@znframework.com', User::getEncryptionPassword('1234'));
+        User::activationComplete('znframeworktest@yandex.com', User::getEncryptionPassword('1234'));
 
         $this->assertEquals('Your registration was completed successfully.', User::success());
 

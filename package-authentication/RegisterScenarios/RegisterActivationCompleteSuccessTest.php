@@ -11,7 +11,7 @@ class RegisterActivationCompleteSuccessTest extends AuthenticationExtends
     {
         $this->activationConfig();
 
-        DB::where('username', 'robot@znframework.com')->delete('accounts');
+        DB::where('username', 'znframeworktest@yandex.com')->delete('accounts');
 
         DBForge::createTable('accounts',
         [
@@ -22,16 +22,16 @@ class RegisterActivationCompleteSuccessTest extends AuthenticationExtends
 
         (new Register)->do
         ([
-            'username' => 'robot@znframework.com',
+            'username' => 'znframeworktest@yandex.com',
             'password' => '1234'
 
         ], false, 'return/link');
         
-        $row =  DB::where('username', 'robot@znframework.com')->accounts()->row();
+        $row =  DB::where('username', 'znframeworktest@yandex.com')->accounts()->row();
 
         $this->assertEquals('For the completion of your registration, please click on the activation link sent to your e-mail address.', User::success());
 
-        $_SERVER['REQUEST_URI'] = 'user/robot@znframework.com';
+        $_SERVER['REQUEST_URI'] = 'user/znframeworktest@yandex.com';
 
         (new Register)->activationComplete('user', function() use($row)
         {

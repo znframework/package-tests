@@ -4,7 +4,7 @@ class EmailTest extends \ZN\Test\GlobalExtends
 {
     public function testValid()
     {
-        $this->assertTrue(Validator::email('robot@znframework.com'));
+        $this->assertTrue(Validator::email('znframeworktest@yandex.com'));
     }  
 
     public function testInvalid()
