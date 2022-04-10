@@ -6,8 +6,8 @@ class CleanerTest extends \PHPUnit\Framework\TestCase
 {
     public function testData()
     {
-        $this->assertSame('@znframework.com', Cleaner::data('znframeworktest@yandex.com', 'robot'));
-        $this->assertSame('@znframework', Cleaner::data('znframeworktest@yandex.com', ['robot', '.com']));
+        $this->assertSame('@yandex.com', Cleaner::data('znframeworktest@yandex.com', 'znframeworktest'));
+        $this->assertSame('@yandex', Cleaner::data('znframeworktest@yandex.com', ['znframeworktest', '.com']));
         $this->assertSame([0 => 'a', 2 => 'c'], Cleaner::data(['a', 'b', 'c'], 'b'));
         $this->assertSame([0 => 'a'], Cleaner::data(['a', 'b', 'c'], ['b', 'c']));
     }
