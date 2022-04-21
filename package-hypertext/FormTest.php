@@ -32,16 +32,16 @@ class FormTest extends HypertextExtends
 
     public function testOpenWithWhere()
     {
-        $form = (string) Form::where('username', 'znframeworktest@yandex.com')->open('persons');
+        $form = (string) Form::where('username', 'robot@znframework.com')->open('persons');
 
-        $this->assertStringStartsWith("SELECT  *  FROM persons  WHERE username =  'znframeworktest@yandex.com'", DB::stringQuery());
+        $this->assertStringStartsWith("SELECT  *  FROM persons  WHERE username =  'robot@znframework.com'", DB::stringQuery());
     }
 
     public function testOpenWithQuery()
     {
-        $form = (string) Form::query("SELECT  *  FROM persons  WHERE username =  'znframeworktest@yandex.com'")->open('persons');
+        $form = (string) Form::query("SELECT  *  FROM persons  WHERE username =  'robot@znframework.com'")->open('persons');
 
-        $this->assertStringStartsWith("SELECT  *  FROM persons  WHERE username =  'znframeworktest@yandex.com'", DB::stringQuery());
+        $this->assertStringStartsWith("SELECT  *  FROM persons  WHERE username =  'robot@znframework.com'", DB::stringQuery());
     }
 
     public function testOpenWithPrevent()

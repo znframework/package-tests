@@ -11,7 +11,7 @@ class RegisterActivationWithUsernameColumnTest extends AuthenticationExtends
     {
         $this->activationConfig();
 
-        DB::where('username', 'znframeworktest@yandex.com')->delete('accounts');
+        DB::where('username', 'robot@znframework.com')->delete('accounts');
 
         DBForge::createTable('accounts',
         [
@@ -22,7 +22,7 @@ class RegisterActivationWithUsernameColumnTest extends AuthenticationExtends
 
         (new Register)->do
         ([
-            'username' => 'znframeworktest@yandex.com',
+            'username' => 'robot@znframework.com',
             'password' => '1234'
 
         ], false, 'return/link');

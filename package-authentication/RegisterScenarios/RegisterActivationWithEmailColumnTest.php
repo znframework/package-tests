@@ -25,7 +25,7 @@ class RegisterActivationWithEmailColumnTest extends AuthenticationExtends
         ([
             'username' => 'robotz',
             'password' => '1234',
-            'email'    => 'znframeworktest@yandex.com'
+            'email'    => 'robot@znframework.com'
 
         ], false, 'return/link');
 

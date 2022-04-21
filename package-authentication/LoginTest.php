@@ -7,28 +7,28 @@ class LoginTest extends AuthenticationExtends
 { 
     public function testStandartLogin()
     {
-        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
+        DB::where('username', 'robot@znframework.com')->delete('users');
 
         User::register
         ([
-            'username' => 'znframeworktest@yandex.com',
+            'username' => 'robot@znframework.com',
             'password' => '1234'
         ]);
 
-        $this->assertTrue(User::login('znframeworktest@yandex.com', '1234'));
+        $this->assertTrue(User::login('robot@znframework.com', '1234'));
     }
 
     public function testIsLogin()
     {
-        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
+        DB::where('username', 'robot@znframework.com')->delete('users');
         
         User::register
         ([
-            'username' => 'znframeworktest@yandex.com',
+            'username' => 'robot@znframework.com',
             'password' => '1234'
         ]);
 
-        User::login('znframeworktest@yandex.com', '1234');
+        User::login('robot@znframework.com', '1234');
 
         $this->assertTrue(User::isLogin());
     }
@@ -37,15 +37,15 @@ class LoginTest extends AuthenticationExtends
     {
         User::register
         ([
-            'username' => 'znframeworktest@yandex.com',
+            'username' => 'robot@znframework.com',
             'password' => '1234'
         ]);
 
-        User::login('znframeworktest@yandex.com', '1234');
+        User::login('robot@znframework.com', '1234');
 
-        $this->assertEquals('znframeworktest@yandex.com', User::data()->username);
+        $this->assertEquals('robot@znframework.com', User::data()->username);
 
-        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
+        DB::where('username', 'robot@znframework.com')->delete('users');
     }
 
     public function testUsername()
@@ -90,7 +90,7 @@ class LoginTest extends AuthenticationExtends
     {
         try
         {
-            $this->loginMock->mockStartPermanentUserSessionWithCookie('znframeworktest@yandex.com', '1234');
+            $this->loginMock->mockStartPermanentUserSessionWithCookie('robot@znframework.com', '1234');
         }
         catch( \Exception $e )
         {

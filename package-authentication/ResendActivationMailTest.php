@@ -12,7 +12,7 @@ class ResendActivationMailTest extends \ZN\Test\GlobalExtends
 
         try
         {
-            $register->resendActivationEmail('znframeworktest@yandex.com', 'return/link');
+            $register->resendActivationEmail('robot@znframework.com', 'return/link');
         }
         catch( Exception\ActivationColumnException $e )
         {
@@ -69,11 +69,11 @@ class ResendActivationMailTest extends \ZN\Test\GlobalExtends
 
     public function testActivationResendSuccess()
     {
-        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
+        DB::where('username', 'robot@znframework.com')->delete('users');
 
         User::register
         ([
-            'username' => 'znframeworktest@yandex.com',
+            'username' => 'robot@znframework.com',
             'password' => '1234',
             'activation' => 0
         ]);
@@ -106,7 +106,7 @@ class ResendActivationMailTest extends \ZN\Test\GlobalExtends
 
         try
         {
-            $register->resendActivationEmail('znframeworktest@yandex.com', 'return/link');
+            $register->resendActivationEmail('robot@znframework.com', 'return/link');
         }
         catch( \Exception $e )
         {

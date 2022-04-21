@@ -26,21 +26,21 @@ class BannedTest extends AuthenticationExtends
             ]
         ]);
 
-        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
+        DB::where('username', 'robot@znframework.com')->delete('users');
 
         (new Register)->do
         ([
-            'username' => 'znframeworktest@yandex.com',
+            'username' => 'robot@znframework.com',
             'password' => '1234'
         ], true);
 
-        DB::where('username', 'znframeworktest@yandex.com')->update('users', ['banned' => 1]);
+        DB::where('username', 'robot@znframework.com')->update('users', ['banned' => 1]);
 
         Properties::$redirectExit = false;
 
         (new Login)->is();
 
-        (new Login)->do('znframeworktest@yandex.com','1234');
+        (new Login)->do('robot@znframework.com','1234');
 
         $this->assertEquals('You can not login because you have been banned from the system!', User::error());
 

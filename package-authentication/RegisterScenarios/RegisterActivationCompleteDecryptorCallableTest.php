@@ -9,7 +9,7 @@ class RegisterActivationCompleteDecryptorCallableTest extends AuthenticationExte
 {
     public function testMake()
     {
-        (new Register)->activationComplete('znframeworktest@yandex.com', function()
+        (new Register)->activationComplete('robot@znframework.com', function()
         {
             return 'password';
         });

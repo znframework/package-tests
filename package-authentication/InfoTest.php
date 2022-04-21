@@ -21,7 +21,7 @@ class InfoTest extends AuthenticationExtends
 
         User::register
         ([
-            'username' => 'znframeworktest@yandex.com',
+            'username' => 'robot@znframework.com',
             'password' => '1234'
         ]);
         
@@ -30,30 +30,30 @@ class InfoTest extends AuthenticationExtends
 
     public function testUserActiveCount()
     {
-        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
+        DB::where('username', 'robot@znframework.com')->delete('users');
 
         User::register
         ([
-            'username' => 'znframeworktest@yandex.com',
+            'username' => 'robot@znframework.com',
             'password' => '1234'
         ]);
 
-        User::login('znframeworktest@yandex.com', '1234');
+        User::login('robot@znframework.com', '1234');
 
         $this->assertEquals(1, User::activeCount());
     }
 
     public function testUserBannedCount()
     {
-        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
+        DB::where('username', 'robot@znframework.com')->delete('users');
 
         User::register
         ([
-            'username' => 'znframeworktest@yandex.com',
+            'username' => 'robot@znframework.com',
             'password' => '1234'
         ]);
 
-        User::login('znframeworktest@yandex.com', '1234');
+        User::login('robot@znframework.com', '1234');
 
         User::update('1234', '1234', NULL, ['banned' => 1]);
 
@@ -62,15 +62,15 @@ class InfoTest extends AuthenticationExtends
 
     public function testGetEncryptionPassword()
     {
-        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
+        DB::where('username', 'robot@znframework.com')->delete('users');
 
         User::register
         ([
-            'username' => 'znframeworktest@yandex.com',
+            'username' => 'robot@znframework.com',
             'password' => '1234'
         ]);
 
-        User::login('znframeworktest@yandex.com', '1234');
+        User::login('robot@znframework.com', '1234');
 
         $data = User::data();
 

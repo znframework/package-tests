@@ -9,22 +9,22 @@ class UpdateTest extends AuthenticationExtends
 {
     public function testUpdateOnlyPassword()
     {
-        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
+        DB::where('username', 'robot@znframework.com')->delete('users');
         
         User::register
         ([
-            'username' => 'znframeworktest@yandex.com',
+            'username' => 'robot@znframework.com',
             'password' => '1234'
         ]);
 
-        User::login('znframeworktest@yandex.com', '1234');
+        User::login('robot@znframework.com', '1234');
 
         $this->assertTrue(User::update('1234', '1234')); 
     }
 
     public function testWrongPassword()
     {
-        (new Login)->do('znframeworktest@yandex.com', '1234');
+        (new Login)->do('robot@znframework.com', '1234');
 
         (new Update)->do('12345');
 
@@ -33,7 +33,7 @@ class UpdateTest extends AuthenticationExtends
 
     public function testPasswordsDoNotMatch()
     {
-        (new Login)->do('znframeworktest@yandex.com', '1234');
+        (new Login)->do('robot@znframework.com', '1234');
 
         (new Update)->do('1234', '123456', '1234');
 
@@ -42,7 +42,7 @@ class UpdateTest extends AuthenticationExtends
 
     public function testJoinColumn()
     {
-        DB::where('username', 'znframeworktest@yandex.com')->delete('users');
+        DB::where('username', 'robot@znframework.com')->delete('users');
 
         DBForge::createTable('addresses',
         [
@@ -63,7 +63,7 @@ class UpdateTest extends AuthenticationExtends
         ([
             'users' => 
             [
-                'username' => 'znframeworktest@yandex.com',
+                'username' => 'robot@znframework.com',
                 'password' => '1234'
             ],
             'addresses' => 
@@ -72,7 +72,7 @@ class UpdateTest extends AuthenticationExtends
             ]
         ]);
 
-        (new Login)->do('znframeworktest@yandex.com', '1234');
+        (new Login)->do('robot@znframework.com', '1234');
 
         (new Update)->do('1234', '1234', '1234', 
         [
@@ -82,7 +82,7 @@ class UpdateTest extends AuthenticationExtends
             ]
         ]);
 
-        (new Login)->do('znframeworktest@yandex.com', '1234');
+        (new Login)->do('robot@znframework.com', '1234');
 
         $data = (new Data)->get('addresses');
 

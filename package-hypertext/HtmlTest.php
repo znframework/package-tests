@@ -123,8 +123,8 @@ class HtmlTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertStringContainsString
         (
-            '<a href="mailto:znframeworktest@yandex.com">Robot</a>', 
-            (string) Html::mailTo('znframeworktest@yandex.com', 'Robot')
+            '<a href="mailto:robot@znframework.com">Robot</a>', 
+            (string) Html::mailTo('robot@znframework.com', 'Robot')
         );
     }
 
