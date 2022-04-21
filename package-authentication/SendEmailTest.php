@@ -43,6 +43,6 @@ class SendEmailTest extends AuthenticationExtends
 
         $send->attachment('robots.txt');
 
-        $send->send('New Topic', 'Added new topic');
+        # $send->send('New Topic', 'Added new topic');
     }
 }
