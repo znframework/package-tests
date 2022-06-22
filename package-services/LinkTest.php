@@ -27,12 +27,14 @@ class LinkTest extends \ZN\Test\GlobalExtends
 
     public function testSetJsonFile()
     {
+        $jsonFile = self::default . 'package-services/example.json';
+
         $this->assertStringContainsString
         (
             'keyframes.min.js', 
-            'keyframes.min.js' ?? CDN::setJsonFile($jsonFile = self::default . 'package-services/example.json')->links()['jquerykeyframes']
+            'keyframes.min.js' ?? CDN::setJsonFile($jsonFile)->links()['jquerykeyframes']
         );
 
-        File::delete($jsonFile);
+        if( is_file($jsonFile) ) File::delete($jsonFile);
     }
 }
