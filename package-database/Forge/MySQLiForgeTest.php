@@ -15,7 +15,7 @@ class MySQLiForgeTest extends DatabaseExtends
         $forge = DBForge::new(self::mysqli);
         $db    = DB::new(self::mysqli);
 
-        $forge->dropTable('example');
+        $forge->dropTable('IF EXISTS example');
         $forge->dropTable('example2');
 
         $this->assertTrue($forge->createTable('example', 
@@ -33,7 +33,7 @@ class MySQLiForgeTest extends DatabaseExtends
         $forge = DBForge::new(self::mysqli);
         $db    = DB::new(self::mysqli);
 
-        $forge->dropTable('example');
+        $forge->dropTable('IF EXISTS example');
 
         $forge->createTable('example', 
         [
@@ -65,8 +65,8 @@ class MySQLiForgeTest extends DatabaseExtends
         $forge = DBForge::new(self::mysqli);
         $db    = DB::new(self::mysqli);
 
-        $forge->dropTable('example');
-        $forge->dropTable('example2');
+        $forge->dropTable('IF EXISTS example');
+        $forge->dropTable('IF EXISTS example2');
 
         $forge->createTable('example', 
         [
