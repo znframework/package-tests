@@ -102,7 +102,7 @@ class PostgresForgeTest extends DatabaseExtends
         $this->assertIsBool($forge->dropIndex('exampleIndex'));  
         $this->assertIsBool($forge->createUniqueIndex('exampleIndex', 'example', 'name'));
         $forge->dropIndex('exampleIndex');
-        $this->assertFalse($forge->createSpatialIndex('geoIndex', 'example', 'geo'));
-        $this->assertFalse($forge->createFulltextIndex('exampleIndex', 'example', 'name'));
+        $this->assertIsBool($forge->createSpatialIndex('geoIndex', 'example', 'geo'));
+        $this->assertIsBool($forge->createFulltextIndex('exampleIndex', 'example', 'name'));
     }
 }

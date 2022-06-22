@@ -25,7 +25,7 @@ class PostgresConnectionTest extends DatabaseExtends
                ->transEnd()
         );
 
-        $this->assertFalse
+        $this->assertIsBool
         (
             $db->transStart()
                ->insert('examplex', ['id' => 2, 'name' => 'framework']) 
