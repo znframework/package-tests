@@ -16,7 +16,7 @@ class MySQLiForgeTest extends DatabaseExtends
         $db    = DB::new(self::mysqli);
 
         $forge->dropTable('IF EXISTS example');
-        $forge->dropTable('example2');
+        $forge->dropTable('IF EXISTS example2');
 
         $this->assertTrue($forge->createTable('example', 
         [

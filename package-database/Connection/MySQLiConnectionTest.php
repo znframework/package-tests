@@ -151,8 +151,8 @@ class MySQLiConnectionTest extends DatabaseExtends
     {
         $this->mysqli(function($db)
         {
-            $db->query('SELECT name FROM persons');   
-                    
+            $db->query('syntax error');   
+
             $this->assertIsString($db->error());
 
             $db->query('SELECT * FROM persons');
