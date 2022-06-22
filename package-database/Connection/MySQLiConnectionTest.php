@@ -31,7 +31,7 @@ class MySQLiConnectionTest extends DatabaseExtends
     {
         $this->mysqli(function($db)
         {
-            $db->exec('DROP TABLE persons');
+            $db->exec('DROP TABLE IF EXISTS persons');
             $db->exec('CREATE TABLE persons (id INT(11))');
 
             $this->assertEmpty($db->error());
