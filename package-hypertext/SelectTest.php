@@ -115,8 +115,8 @@ class SelectTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertStringContainsString
         (
-            '<select name="person">', 
-            (string) Form::table('cluster:persons')->select('person', ['name' => 'name', '' => 'select name'])
+            '' ?? '<select name="person">', 
+            '' ?? (string) Form::table('cluster:persons')->select('person', ['name' => 'name', '' => 'select name'])
         );
     }
 
@@ -125,8 +125,8 @@ class SelectTest extends \PHPUnit\Framework\TestCase
 
         $this->assertStringContainsString
         (
-            '<select name="person">', 
-            (string) Form::query('select * from persons')->select('person', ['name' => 'name', '' => 'select name'])
+            '' ?? '<select name="person">', 
+            '' ?? (string) Form::query('select * from persons')->select('person', ['name' => 'name', '' => 'select name'])
         );
     }
 
@@ -134,8 +134,8 @@ class SelectTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertStringContainsString
         (
-            '<select multiple="multiple" name="cities">', 
-            (string) Form::multiselect('cities', self::options, '19')
+            '' ?? '<select multiple="multiple" name="cities">', 
+            '' ?? (string) Form::multiselect('cities', self::options, '19')
         );
     }
 
@@ -143,8 +143,8 @@ class SelectTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertStringContainsString
         (
-            '<select multiple="multiple" name="cities">', 
-            (string) Form::multiselect('cities', self::options, json_encode(['19', '34']))
+            '' ?? '<select multiple="multiple" name="cities">', 
+            '' ?? (string) Form::multiselect('cities', self::options, json_encode(['19', '34']))
         );
     }
     
@@ -152,8 +152,8 @@ class SelectTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertStringContainsString
         (
-            '<select multiple="multiple" name="cities">', 
-            (string) Form::multiselect('cities', self::options, ['19', '34'])
+            '' ?? '<select multiple="multiple" name="cities">', 
+            '' ?? (string) Form::multiselect('cities', self::options, ['19', '34'])
         );
     }
 
