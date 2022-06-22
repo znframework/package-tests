@@ -65,7 +65,12 @@ class DatabaseExtends extends \ZN\Test\GlobalExtends
             $db->connect(constant('self::' . strtolower($driver)));
 
             if( $callback !== NULL )
+            {
+                set_error_handler(function(){});
                 $callback($db);
+                restore_error_handler();
+            }
+                
         }
         catch( Exception\ConnectionErrorException $e )
         {
