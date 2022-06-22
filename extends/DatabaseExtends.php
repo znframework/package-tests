@@ -80,6 +80,8 @@ class DatabaseExtends extends \ZN\Test\GlobalExtends
 
     protected function mysqli($callback = NULL)
     {
+        mysqli_report(MYSQLI_REPORT_OFF);
+        
         $this->driver($callback, 'MySQLi');
     }
 
