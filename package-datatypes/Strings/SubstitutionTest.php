@@ -11,7 +11,7 @@ class SubstitutionTest extends \PHPUnit\Framework\TestCase
 
     public function testRepeateCompleteRight()
     {
-        $this->assertSame('a00', Strings::repeatComplete('a', 3), '0', 'right');
+        $this->assertSame('a00', Strings::repeatComplete('a', 3, '0', 'right'));
     }
 
     public function testRepeateCompleteDifferenceNotGreaterThanZero()
