@@ -19,6 +19,20 @@ class ExcelTest extends FilesystemExtends
         $this->assertIsString($content);
     }
 
+    public function testArrayToCSV()
+    {
+        $content = Buffer::callback(function()
+        {
+            Excel::arrayToCSV
+            ([
+                ['1', '2', '3'],
+                ['1', '2', '3']
+            ], 'excel');
+        });   
+
+        $this->assertIsString($content);
+    }
+
     public function testCSVToArray()
     {
         $this->assertIsArray(Excel::CSVToArray(self::directory . 'test'));
