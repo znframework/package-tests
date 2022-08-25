@@ -11,11 +11,11 @@ class FormTest extends HypertextExtends
 {
     public function testGetName()
     {
-        Form::open('exampleFormName');
+        (string) Form::open('exampleFormName');
 
         $formName = Form::getName();
 
-        Form::close();
+        (string) Form::close();
 
         $this->assertSame('exampleFormName', $formName);  
     }
