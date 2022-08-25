@@ -9,6 +9,17 @@ use Session;
 
 class FormTest extends HypertextExtends
 {
+    public function testGetName()
+    {
+        Form::open('exampleFormName');
+
+        $formName = Form::getName();
+
+        Form::close();
+
+        $this->assertSame('exampleFormName', $formName);  
+    }
+    
     public function testOpen()
     {
         $this->assertStringStartsWith('<form id="formId" name="formName" method="post">', (string) Form::open('formName', ['id' => 'formId']));
@@ -235,16 +246,5 @@ class FormTest extends HypertextExtends
         Form::resetValidationRules('ExampleForm');
 
         $this->assertEmpty(Session::select('FormValidationRulesExampleForm'));
-    }
-
-    public function testGetName()
-    {
-        Form::open('exampleFormName');
-
-        $formName = Form::getName();
-
-        Form::close();
-
-        $this->assertSame('exampleFormName', $formName);  
     }
 }
