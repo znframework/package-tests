@@ -236,4 +236,15 @@ class FormTest extends HypertextExtends
 
         $this->assertEmpty(Session::select('FormValidationRulesExampleForm'));
     }
+
+    public function testGetName()
+    {
+        Form::open('exampleFormName');
+
+        $formName = Form::getName();
+
+        Form::close();
+
+        $this->assertSame('exampleFormName', $formName);  
+    }
 }
