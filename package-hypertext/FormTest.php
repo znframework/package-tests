@@ -19,10 +19,10 @@ class FormTest extends HypertextExtends
 
         $this->assertSame('exampleFormName', $formName);  
     }
-    
+
     public function testOpen()
     {
-        $this->assertStringStartsWith('<form id="formId" name="formName" method="post">', (string) Form::open('formName', ['id' => 'formId']));
+        $this->assertStringContainsString('form id="formId"', (string) Form::open('formName', ['id' => 'formId']));
     }
 
     public function testOpenWithAction()
