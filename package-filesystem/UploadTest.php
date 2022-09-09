@@ -142,4 +142,15 @@ class UploadTest extends FilesystemExtends
     {
         Transfer::upload('file');
     }
+
+    public function testClean()
+    {
+        Upload::start('file', self::directory);
+
+        $path = Upload::info()->path;
+        
+        Upload::clean();
+
+        $this->assertFalse(is_file($path));
+    }
 }
