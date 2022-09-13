@@ -131,7 +131,12 @@ class UploadTest extends FilesystemExtends
     public function testInfo()
     {
         $this->assertIsObject(Upload::info());
-    }   
+    }  
+    
+    public function testInfoWithParameter()
+    {
+        Upload::info('error');
+    }
 
     public function testSettings()
     {
