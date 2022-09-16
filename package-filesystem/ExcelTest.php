@@ -13,7 +13,7 @@ class ExcelTest extends FilesystemExtends
             ([
                 ['1', '2', '3'],
                 ['1', '2', '3']
-            ], 'excel');
+            ], 'excel', true);
         });   
 
         $this->assertIsString($content);
@@ -27,7 +27,7 @@ class ExcelTest extends FilesystemExtends
             ([
                 ['1', '2', '3'],
                 ['1', '2', '3']
-            ], 'excel');
+            ], 'excel', true);
         });   
 
         $this->assertIsString($content);
