@@ -43,4 +43,14 @@ class FunctionsTest extends ZerocoreExtends
     {
         $this->assertStringContainsString('1', wizard('{{ $data }}', ['data' => 1]));
     }
+
+    public function testOnce()
+    {
+        $return = once('a1', function()
+        {
+            return 1;
+        });
+
+        $this->assertEquals(1, $return);
+    }
 }
