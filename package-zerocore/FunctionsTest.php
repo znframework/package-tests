@@ -46,11 +46,11 @@ class FunctionsTest extends ZerocoreExtends
 
     public function testOnce()
     {
-        $return = once('a1', function()
+        $return = once('a1', function($key)
         {
-            return 1;
+            return $key;
         });
 
-        $this->assertEquals(1, $return);
+        $this->assertEquals('a1', $return);
     }
 }
