@@ -55,16 +55,16 @@ class SortTest extends \PHPUnit\Framework\TestCase
 
     public function testDescendingKey()
     {
-        $array = Arrays::descendingKey([1 => 'one', 2 => 'two', 'three' => 'three', 10 => 'ten']);
+        $array = Arrays::descendingKey([1 => 'one', 2 => 'two', 10 => 'ten']);
 
-        $this->assertSame(['ten', 'two', 'one', 'three'], array_values($array));
+        $this->assertSame(['ten', 'two', 'one'], array_values($array));
     }
 
     public function testAscendingKey()
     {
-        $array = Arrays::ascendingKey([1 => 'one', 2 => 'two', 'three' => 'three', 10 => 'ten']);
+        $array = Arrays::ascendingKey([1 => 'one', 2 => 'two', 10 => 'ten']);
 
-        $this->assertSame(['three', 'one', 'two', 'ten'], array_values($array));
+        $this->assertSame(['one', 'two', 'ten'], array_values($array));
     }
 
     public function testShuffle()
