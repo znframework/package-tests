@@ -148,4 +148,14 @@ class DateTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertIsString(Date::currentDay());
     }
+
+    public function testQuarter()
+    {
+        $this->assertSame(1, (int) Date::quarter('2021-01-23'));
+    }
+
+    public function testLang()
+    {
+        $this->assertSame('Pazar', Date::ltomorrow('2021-01-23', 'tr'));
+    }
 }
