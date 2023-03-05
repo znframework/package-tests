@@ -122,6 +122,11 @@ class DateTest extends \PHPUnit\Framework\TestCase
         $this->assertIsString(Date::addDay('10'));
     }
 
+    public function testAddHour()
+    {
+        $this->assertIsString(Date::addHour('10'));
+    }
+
     public function testRemoveDay()
     {
         $this->assertSame('2021-01-21', Date::removeDay('2021-01-23', 2));
@@ -157,5 +162,10 @@ class DateTest extends \PHPUnit\Framework\TestCase
     public function testLang()
     {
         $this->assertSame('Pazar', Date::ltomorrow('2021-01-23', 'tr'));
+    }
+
+    public function testDayCount()
+    {
+        $this->assertSame(31, Date::dayCount('2021-01-10'));
     }
 }
