@@ -32,4 +32,9 @@ class ISTest extends ZerocoreExtends
         $this->assertTrue(IS::slug('a-b'));
         $this->assertFalse(IS::slug('a b'));
     }
+
+    public function testClosure()
+    {
+        $this->assertFalse(IS::closure('is_callable'));
+    }
 }
