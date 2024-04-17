@@ -13,4 +13,9 @@ class StringsTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertEquals('a b c', Strings::pad('a b c', 1));
     }
+
+    public function testUnserialize()
+    {
+        $this->assertEquals(['a' => '1', 'b' => '2'], Strings::unserialize('a=1&b=2'));
+    }
 }

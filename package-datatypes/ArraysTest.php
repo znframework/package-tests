@@ -51,4 +51,16 @@ class ArraysTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals(['a1', 'b1'], $array);
     }
+
+    public function testFillKeysRange()
+    {
+        $data = [1 => 'A', 5 => 'B'];
+
+        $this->assertTrue([1 => 'A', 2 => 'X', 3 => 'X', 4 => 'X', 5 => 'B'], Arrays::fillKeysRange($data, 'X'));
+    }
+
+    public function testFillKeysRangeEmpty()
+    {
+        $this->assertTrue([], Arrays::fillKeysRange([]));
+    }
 }
