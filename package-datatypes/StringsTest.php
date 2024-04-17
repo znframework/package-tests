@@ -18,4 +18,9 @@ class StringsTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertEquals(['a' => '1', 'b' => '2'], Strings::unserialize('a=1&b=2'));
     }
+
+    public function testSerialize()
+    {
+        $this->assertEquals('a=1&b=2', Strings::serialize(['a' => '1', 'b' => '2']));
+    }
 }
