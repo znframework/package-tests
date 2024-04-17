@@ -7,6 +7,12 @@ class ZNTest extends ZerocoreExtends
 {
     public function testKernelRun()
     {
+        # It keeps the selected project configuration.
+        define('PROJECT_CONFIG', Config::get('Project'));
+
+        # It keeps the selected project mode.
+        define('PROJECT_MODE', strtolower(PROJECT_CONFIG['mode'] ?? 'development'));
+        
         $output = Buffer::callback(function()
         {
             Kernel::run();
