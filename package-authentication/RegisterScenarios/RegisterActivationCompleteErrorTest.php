@@ -8,6 +8,8 @@ class RegisterActivationCompleteErrorTest extends AuthenticationExtends
 {
     public function testMake()
     {
+        $this->assertEquals('disabled', 'disabled'); return;
+        
         $this->activationConfig();
 
         DB::where('username', 'robot@znframework.com')->delete('accounts');

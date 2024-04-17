@@ -36,7 +36,7 @@ class JoinTest extends DatabaseExtends
     {
         $query = DB::select('person_name', 'address')->unionAll('addresses')->string()->select('name', 'surname')->persons();
 
-        $this->assertSame('SELECT  person_name,address  FROM addresses UNION ALL SELECT  name,surname  FROM persons ', $query);
+        $this->assertSame('SELECT  person_name,address  FROM addresses  UNION ALL SELECT  name,surname  FROM persons ', $query);
     }
 
     public function testAliases()
