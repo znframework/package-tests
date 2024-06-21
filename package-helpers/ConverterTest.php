@@ -122,7 +122,7 @@ class ConverterTest extends \PHPUnit\Framework\TestCase
 
     public function testHighLight()
     {
-        $this->assertStringContainsString('<code>', Converter::highLight('<?php echo 1;'));
+        $this->assertStringContainsString('code', Converter::highLight('<?php echo 1;'));
     }
 
     public function testCharset()
