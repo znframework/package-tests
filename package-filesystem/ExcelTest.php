@@ -37,4 +37,9 @@ class ExcelTest extends FilesystemExtends
     {
         $this->assertIsArray(Excel::CSVToArray(self::directory . 'test'));
     }
+
+    public function testCSVToArrayWithDelimiter()
+    {
+        $this->assertIsArray(Excel::delimiter('|')->CSVToArray(self::directory . 'testDelimiter'));
+    }
 }
