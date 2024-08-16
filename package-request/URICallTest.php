@@ -33,4 +33,11 @@ class URICallTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals('sendForm', URI::contact(2));
     }
+
+    public function testUriCallNameWithXParameter()
+    {
+        $_SERVER['REQUEST_URI'] = 'contact/us?a=1';
+
+        $this->assertEquals('us', URI::Xcontact());
+    }
 }
