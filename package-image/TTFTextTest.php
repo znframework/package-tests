@@ -7,7 +7,7 @@ class TTFTextTest extends Test\GDExtends
     public function testTFFText()
     {
       GD::canvas(300, 300, 'white')
-        ->color('black')->fontSize(20)->load(self::dir . 'test.ttf')->x(250)->y(100)->angle(90)->tfftext('Ozan Uykun!')
+        ->color('black')->fontSize(20)->load(self::dir . 'test.ttf')->x(250)->y(100)->angle(90)->ttftext('Ozan Uykun!')
         ->generate('png', $generateFile = self::dir . 'tff-300-300.png');
 
         $size = GD::size($generateFile);
@@ -20,7 +20,7 @@ class TTFTextTest extends Test\GDExtends
         try
         {
           GD::canvas(300, 300, 'white')
-            ->color('black')->fontSize(20)->load(self::dir . 'invli.ttf')->x(250)->y(100)->angle(90)->tfftext('Ozan Uykun!')
+            ->color('black')->fontSize(20)->load(self::dir . 'invli.ttf')->x(250)->y(100)->angle(90)->ttftext('Ozan Uykun!')
             ->generate('png', $generateFile = self::dir . 'tff-300-300.png');
         }
         catch( Exception\FontNotFoundException $e )
@@ -34,7 +34,7 @@ class TTFTextTest extends Test\GDExtends
         try
         {
           GD::canvas(300, 300, 'white')
-            ->color('black')->fontSize(20)->load(self::dir . 'image.jpg')->x(250)->y(100)->angle(90)->tfftext('Ozan Uykun!')
+            ->color('black')->fontSize(20)->load(self::dir . 'image.jpg')->x(250)->y(100)->angle(90)->ttftext('Ozan Uykun!')
             ->generate('png', $generateFile = self::dir . 'tff-300-300.png');
         }
         catch( Exception\TTFExtensionException $e )
