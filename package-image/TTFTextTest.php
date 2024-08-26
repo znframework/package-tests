@@ -15,6 +15,17 @@ class TTFTextTest extends Test\GDExtends
         $this->assertSame([300, 300], [$size->width, $size->height]);
     }
 
+    public function testTFFTextWithText()
+    {
+      GD::canvas(300, 300, 'white')
+        ->color('black')->fontSize(20)->load(self::dir . 'test.ttf')->x(250)->y(100)->angle(90)->text('Ozan Uykun!')
+        ->generate('png', $generateFile = self::dir . 'tff-300-300.png');
+
+        $size = GD::size($generateFile);
+
+        $this->assertSame([300, 300], [$size->width, $size->height]);
+    }
+
     public function testFontNotFound()
     {   
         try
