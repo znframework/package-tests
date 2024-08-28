@@ -7,7 +7,7 @@ class TextTest extends Test\GDExtends
     public function testText()
     {
         GD::canvas(300, 300, 'white')
-          ->color('red')->font(5)->x(40)->y(100)->type('vertical')->text('Hello!')
+          ->color('red')->load(NULL)->font(5)->x(40)->y(100)->type('vertical')->text('Hello!')
           ->generate('png', $generateFile = self::dir . 'text-300-300.png');
 
         $size = GD::size($generateFile);

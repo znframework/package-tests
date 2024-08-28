@@ -50,7 +50,7 @@ class TTFTextTest extends Test\GDExtends
         }
         catch( Exception\TTFExtensionException $e )
         {
-            $this->assertStringContainsString('image.jpg', $e->getMessage());
+            $this->assertStringContainsString('image.jpg.ttf', $e->getMessage());
         }
     }
 }
